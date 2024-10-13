@@ -33,10 +33,3 @@ export default memo(function Home() {
       </main>
     </Layout>;
 });
-declare global {         
-  interface Window {         
-    globalCount: number;         
-  }         
-}
-
-window.globalCount = 0;
