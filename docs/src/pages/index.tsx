@@ -1,43 +1,49 @@
 import { memo } from "react";
-import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import styles from './index.module.css';
+import React from "react";
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import styles from "./index.module.css";
 const HomepageHeader = memo(function HomepageHeader() {
   console.log(window.globalCount++);
-  const {
-    siteConfig
-  } = useDocusaurusContext();
-  return <header className={clsx('hero hero--primary', styles.heroBanner)}>
+  const { siteConfig } = useDocusaurusContext();
+  return (
+    <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <Link className="button button--secondary button--lg" to="/docs/intro">
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/intro"
+          >
             Read the Getting Started section in the Book
           </Link>
         </div>
       </div>
-    </header>;
+    </header>
+  );
 });
 export default memo(function Home() {
   console.log(window.globalCount++);
-  const {
-    siteConfig
-  } = useDocusaurusContext();
-  return <Layout title={`${siteConfig.title}`} description="Description will go into a meta tag in <head />">
+  const { siteConfig } = useDocusaurusContext();
+  return (
+    <Layout
+      title={`${siteConfig.title}`}
+      description="Description will go into a meta tag in <head />"
+    >
       <HomepageHeader />
       <main>
         <HomepageFeatures />
       </main>
-    </Layout>;
+    </Layout>
+  );
 });
 declare global {
   interface Window {
     globalCount: number;
   }
 }
-window.globalCount = 0;
+window.globalCount = window.globalCount || 0;
