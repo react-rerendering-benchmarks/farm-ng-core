@@ -7,6 +7,7 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import styles from './index.module.css';
 const HomepageHeader = memo(function HomepageHeader() {
+  console.log(window.globalCount++);
   const {
     siteConfig
   } = useDocusaurusContext();
@@ -23,6 +24,7 @@ const HomepageHeader = memo(function HomepageHeader() {
     </header>;
 });
 export default memo(function Home() {
+  console.log(window.globalCount++);
   const {
     siteConfig
   } = useDocusaurusContext();
@@ -33,3 +35,9 @@ export default memo(function Home() {
       </main>
     </Layout>;
 });
+declare global {
+  interface Window {
+    globalCount: number;
+  }
+}
+window.globalCount = 0;
